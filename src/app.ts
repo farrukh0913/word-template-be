@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 routes(app);
 // MongoDB connection
-const url = 'mongodb://127.0.0.1:27017/templates'
+const url = 'mongodb+srv://Testuser:sD0u6shfroddIwKL@cluster0.hdghz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 mongoose.connect(url)
   .then(() => {
     console.log("Connected to database!", url);

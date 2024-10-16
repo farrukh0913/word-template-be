@@ -4,12 +4,18 @@ import * as jwtTokenKey from '../../app'
 
 export const createUser = async function (req, res) {
     const request = req.body;
+    const { name, email, password } = req.body;
     try {
-      const createdRequest = await User.create(request);
-      if (createdRequest) {
-        res.status(200).json({ status: "success", message: "User created successfully." });
+      const user = await User.findOne({ email });
+      if(!user){
+        const createdRequest = await User.create(request);
+        if (createdRequest) {
+          res.status(200).json({ status: "success", message: "User created successfully." });
+        } else {
+          res.status(400).json({ status: "Error", message: "Error in created user." });
+        }
       } else {
-        res.status(400).json({ status: "Error", message: "Error in created user." });
+        res.status(400).json({ status: "Error", message: "User already exists." });
       }
     } catch (err) {
       res.status(500).json({ message: "Server error", error: err });
