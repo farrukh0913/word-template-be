@@ -38,10 +38,14 @@ export const login = async function (req, res) {
       };
   
       const token = jwt.sign(payload, jwtTokenKey.TOKEN_KEY);
+      const data = {
+        name: user.name,
+        token: token
+      }
       return res.status(200).json({
         status: 'success',
         message: 'Login successful.',
-        token,
+        data,
       });
   
     } catch (err) {
