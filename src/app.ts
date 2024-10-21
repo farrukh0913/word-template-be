@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 routes(app);
 // MongoDB connection
-const url = 'mongodb+srv://Testuser:sD0u6shfroddIwKL@cluster0.hdghz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const url = 'mongodb+srv://Testuser:sD0u6shfroddIwKL@cluster0.hdghz.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(url)
   .then(() => {
     console.log("Connected to database!", url);
@@ -39,7 +39,7 @@ mongoose.connect(url)
   .catch((error) => {
     console.log("Connection failed!:", error);
   });
-  
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
