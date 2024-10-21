@@ -31,10 +31,10 @@ app.use((req, res, next) => {
 
 routes(app);
 // MongoDB connection
-const url = 'mongodb+srv://Testuser:sD0u6shfroddIwKL@cluster0.hdghz.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(url)
+const MONGODB_URI = 'mongodb+srv://testuser:sd0u6shfroddiwkl@cluster0.hdghz.mongodb.net/test'
+mongoose.connect(MONGODB_URI)
   .then(() => {
-    console.log("Connected to database!", url);
+    console.log("Connected to database!", MONGODB_URI);
   })
   .catch((error) => {
     console.log("Connection failed!:", error);
