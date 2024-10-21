@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 routes(app);
 // MongoDB connection
-const MONGODB_URI = 'mongodb+srv://testuser:sd0u6shfroddiwkl@cluster0.hdghz.mongodb.net/test'
+const MONGODB_URI = 'mongodb+srv://testuser:sD0u6shfroddIwKL@cluster0.hdghz.mongodb.net/test'
 mongoose.connect(MONGODB_URI)
   .then(() => {
     console.log("Connected to database!", MONGODB_URI);
