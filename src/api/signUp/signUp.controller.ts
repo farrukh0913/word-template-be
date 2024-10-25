@@ -39,7 +39,12 @@ export const login = async function (req, res) {
   
       const token = jwt.sign(payload, jwtTokenKey.TOKEN_KEY);
       const data = {
-        name: user.name,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        signature: user.signature,
+        title: user.title,
+        email: user.email,
+        password: user.password,
         token: token
       }
       return res.status(200).json({
